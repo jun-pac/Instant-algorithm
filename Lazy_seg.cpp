@@ -51,11 +51,11 @@ public:
 	}
 	
 	void update_seg(int idx, int l, int r, int t_l, int t_r, int val){
+		update_down(idx, l, r);
 		if(t_l<=l && r<=t_r){
 			// seg[idx].val과 seg[idx].lazy_val업데이트
 			return;
 		}
-		update_down(idx, l, r);
 		int mid=(l+r)>>1;
 		if(t_l<=mid) update_seg(2*idx,l,mid,t_l,t_r,val);
 		if(t_r>mid) update_seg(2*idx+1,mid+1,r,t_l,t_r,val);
@@ -63,10 +63,10 @@ public:
 	}
 	
 	node find_seg(int idx, int l, int r, int t_l, int t_r){
+		update_down(idx, l, r);
 		if(t_l<=l && r<=t_r){
 			return seg[idx];
 		}
-		update_down(idx, l, r);
 		node result;
 		int mid=(l+r)>>1;
 		if(t_l<=mid) result=result+find_seg(2*idx,l,mid,t_l,t_r);
