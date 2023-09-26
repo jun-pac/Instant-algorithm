@@ -17,7 +17,7 @@ public:
         // Do something!
         return result;
     }
-    // int val, lazy_val;
+    int val=0, lazy_val=0;
 };
 
 class lazy_seg{

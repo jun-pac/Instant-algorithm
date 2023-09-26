@@ -34,7 +34,7 @@ public:
 
 private: 
     bool is_re(node *cur, int idx, string &s){
-        if(idx==s.size()) return ((cur->cnt)>=1);
+        if(idx==s.size()) return ((cur->cnt)>=1); // 여기까지 왔으면 그냥 true해도 되지 않나? 처음에 들어올 때 때문인가
         if((cur->next[s[idx]-'A'])==NULL) return false;
         return is_re(cur->next[s[idx]-'A'],idx+1,s);
     }

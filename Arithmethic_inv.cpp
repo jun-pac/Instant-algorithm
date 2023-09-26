@@ -4,7 +4,7 @@
 using namespace std;
 
 #define MOD 998244353
-#define MAX_DIGIT 60
+#define MAX_DIGIT 62
 
 // Remember (ak)*(bk)^(-1) === a*b^(-1) === (ak%P)*(bk%P)^(-1) (mod P)
 long long ari_inv(long long num){

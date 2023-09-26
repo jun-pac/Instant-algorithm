@@ -23,3 +23,6 @@ bool DFS(int idx){
     }
     return false;
 }
+
+// fill(visited, visited+n, 0); 을 매번 해줘야 한다. N^2이 나오는 게 정상
+// if(DFS(i)) result++; 이렇게 유량을 구함.

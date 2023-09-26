@@ -144,3 +144,17 @@ void update_query(int a, int b, int val){
 	}
 	s.update_seg(1,0,n-1,min(in[a],in[b]),max(in[a],in[b]),val);
 }
+
+/*
+int main(){
+	// initialize n
+	cnt=0;
+	parent[0]=-1, top[0]=depth[0]=0;
+	DFS(0,-1);
+	DFS1(0);
+	DFS2(0);
+	s.build_seg(1,0,n-1);
+
+	return 0;
+}
+*/
