@@ -1,4 +1,3 @@
-// Check필요.
 // PST
 
 #include <bits/stdc++.h>
@@ -13,21 +12,20 @@ public:
     node(){}
     node operator+(node b){
         node res;
-        // Implement. 예시는 단순히 개수 세는 것.
         // 왼쪽에 더해지는 node의 l_idx, r_idx를 보존한다.
         res.l_idx=l_idx, res.r_idx=r_idx;
-        res.cnt=cnt+b.cnt;
+        res.val=val+b.val;
         return res;
     }
     node operator-(node b){
         node res;
         // Implement
         res.l_idx=l_idx, res.r_idx=r_idx;
-        res.cnt=cnt-b.cnt;
+        res.val=val-b.val;
         return res;
     }
     int l_idx=-1, r_idx=-1; // 여기서 idx는 본인의 idx를 말한다.
-    long long cnt=0;    
+    long long val=0;    
 };
 
 class PST{
@@ -36,10 +34,10 @@ public:
     node seg[N_node]; // All node datas
     int cur_x=0, s_cnt=0; // s_cnt는 현재까지 사용한 node의 개수
     PST(){}
-    void push(long long y){
+    void push(int y_idx, long long y_val){
         // Pusing one element generate anothor root. Regardless of the val x.
         seg_root[cur_x]=s_cnt++;
-        update_seg(seg_root[cur_x],(cur_x==0?-1:seg_root[cur_x-1]),0,Y_RANGE-1,y,1);
+        update_seg(seg_root[cur_x],(cur_x==0?-1:seg_root[cur_x-1]),0,Y_RANGE-1,y_idx,y_val);
         cur_x++;
     }
     node query(long long x1, long long x2, long long y1, long long y2){
@@ -56,7 +54,7 @@ private:
         // previous segtree의 idx도 같이 관리. (첫 번째 layer의 경우는 -1)
         if(l==r){
             // Implement. 과거의 데이터에 덮어씌우는 것은 이부분이 유일.
-            seg[idx].cnt=val;
+            seg[idx].val=val;
             if(prev_idx!=-1) seg[idx]=seg[idx]+seg[prev_idx];
             return;
         }
@@ -85,4 +83,4 @@ private:
     }
 };
 
-PST p;
+PST pst;
