@@ -6,7 +6,7 @@ using namespace std;
 class lazy_cnt_tree{
 public:
 	lazy_cnt_tree(){}
-	int seg[1<<19];
+	long long seg[1<<19];
 	void build_seg(int idx, int l, int r){
 		if(l==r){
 			// seg[idx]=datas[l];
@@ -27,9 +27,9 @@ public:
 		if(t_r>mid) update_seg(2*idx+1,mid+1,r,t_l,t_r,val);
 	}
 
-	int find_seg(int idx, int l, int r, int t_idx){
+	long long find_seg(int idx, int l, int r, int t_idx){
 		if(l==r) return seg[idx];
-		int res=seg[idx];
+		long long res=seg[idx];
 		int mid=(l+r)>>1;
 		if(t_idx<=mid) res=res+find_seg(2*idx,l,mid,t_idx);
 		if(t_idx>mid) res=res+find_seg(2*idx+1,mid+1,r,t_idx);

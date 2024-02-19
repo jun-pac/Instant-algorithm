@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int parent[100000];
+int parent[300030];
 int find(int idx){
 	if(idx==parent[idx]) return idx;
 	return parent[idx]=find(parent[idx]);
