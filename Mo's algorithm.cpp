@@ -20,8 +20,8 @@ template<typename T>
 inline T umin(T &u, T v){return u = min(u, v);}
 
 #define INF 1000000007
-
-int sqrtN;
+#define N 300030
+int sqrtN=400;
 
 class Query{
 public:
@@ -32,8 +32,8 @@ public:
 	}
 };
 
-Query qs[1000000];
-int ans[1000000];
+Query qs[N];
+int ans[N];
 
 void go(int idx){
 
@@ -53,9 +53,13 @@ int main(){
     //ans[qs[0].idx] = ;
 
 	for(int i=1; i<q; i++){
-		while(s < qs[i].s) back(s++);
+		// while(s < qs[i].s) back(s++);
+		// while(s > qs[i].s) go(--s);
+		// while(e < qs[i].e) go(++e);
+		// while(e > qs[i].e) back(e--); // Potential risk of negative substring
 		while(s > qs[i].s) go(--s);
-		while(e < qs[i].e) go(++e);
+        while(e < qs[i].e) go(++e);
+        while(s < qs[i].s) back(s++);
 		while(e > qs[i].e) back(e--);
         //ans[qs[i].idx] = ;
 	}

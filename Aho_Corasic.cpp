@@ -38,6 +38,7 @@ public:
     }
     void get_phi(){
         queue<pair<node*,node*>> phi_q; // cur_pos, pphi
+        // Unlike KMP, pphi is the deepest pointer that actually matched with cur
         phi_q.push({root,root});
         while(!phi_q.empty()){
             pair<node*,node*> temp=phi_q.front();

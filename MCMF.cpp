@@ -18,11 +18,11 @@ void add_edge(int a, int b, int w, int f){
     edges[b].push_back({a,-w}); capa[b][a]=0; flow[b][a]=0;
 }
 
-void floyd_warshall(int s){
+void floyd_warshall(int s){ // maximum O(n*min(n,m))
+    // Use floyd-warshall instead of dijkstra is because, negative weight edges exist
     // Only update pre[], dist[] 
     fill(inQ, inQ+N, false);
     fill(dist, dist+N, INF);
-    int ff=INF;
     queue<int> q;
     q.push(s);
     inQ[s]=true; // To maintain light queue

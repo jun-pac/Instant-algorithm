@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int gcd(int x, int y){
+long long gcd(long long x, long long y){
     if(x<y) swap(x,y);
     if(y==0) return x;
     if(x%y==0) return y;

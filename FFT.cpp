@@ -13,6 +13,7 @@ void FFT(cpx g[], bool inv = false){
         // j : bitwise reverse of i (10110 -> 01101)
         int b = n/2;
         while(!((j ^= b) & b)) b /= 2; // find left-most 1 bit of j, then reverse all the visited bit.
+        // 1110xx -> 0001xx
         if(i < j) swap(g[i], g[j]);
     }
     for(int k = 1; k < n; k *= 2){

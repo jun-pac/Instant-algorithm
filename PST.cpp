@@ -5,7 +5,7 @@ using namespace std;
 
 #define N_node 2000000 // V log|Y_RANGE| scale 
 #define NX 100001
-#define Y_RANGE 100001
+#define Y_RANGE 100000001 // Could be much larger than this. (Memory&Time complexcities are effeced only logarithmic scale.)
 
 class node{
 public:

@@ -70,12 +70,12 @@ void get_scc(){
 // Update answers of 2-sat to scc_state. 
 // fill(visited, visited+scc_cnt, false); before call this function.
 // Set scc_cnt, r_scc_edges and scc_element before call this function.
-bool r_scc_DFS(int idx, bool state){
+bool r_sat_DFS(int idx, bool state){
     visited[idx]=true;
     bool new_state=false;
     for(int i=0; i<r_scc_edges[idx].size(); i++){
         if(!visited[r_scc_edges[idx][i]]){
-            new_state=new_state||r_scc_DFS(r_scc_edges[idx][i], state);
+            new_state=new_state||r_sat_DFS(r_scc_edges[idx][i], state);
         }
     }
     if(!scc_fixed[idx]){
